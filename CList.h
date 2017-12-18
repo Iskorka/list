@@ -146,6 +146,8 @@ void CList<T>::insert(int index, const T &val)
 
             temp = temp->next_;
         }
+
+        ++size_;
     }
 }
 
@@ -215,13 +217,14 @@ T CList<T>::pop(int index)
 
                 delete temp;
 
+                --size_;
+
                 return tempVal;
             }
 
             temp = temp->next_;
         }
     }
-
     return 0;
 }
 
@@ -297,6 +300,7 @@ T CList<T>::operator[](int index)
 
     return 0;
 }
+
 
 template<typename T>
 CList<T>::~CList()
